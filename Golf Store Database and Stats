@@ -1,0 +1,35 @@
+-- Create a Golf store database
+
+CREATE TABLE golf (id INTEGER PRIMARY KEY, name TEXT, color TEXT, size TEXT, price INTEGER);
+
+INSERT INTO golf VALUES
+(1, "club set", "silver", "standard", 300),
+(2, "balls", "white", "na", 20),
+(3, "shoes", "black", "large", 60),
+(4, "bag", "blue", "standard", 150),
+(5, "shirt", "white", "large", 40),
+(6, "hat", "blue", "standard", 30),
+(7, "tees", "beige", "na", 10),
+(8, "gloves", "white", "medium", 20),
+(9, "spikes", "black", "regular", 15),
+(10, "pants", "grey", "large", 50),
+(11, "club covers", "variety", "standard", 40),
+(12, "towel", "white", "small", 20),
+(13, "socks", "black", "large", 20),
+(14, "sunglasses", "black", "na", 60),
+(15, "sunscreen", "na", "medium", 15);
+
+--display the database ordered by price.
+SELECT * FROM golf
+ORDER BY price DESC;
+
+--what is the avg price of white items?
+SELECT AVG(price) AS average_price
+FROM golf
+WHERE color="white";
+
+-- what are the 5 most expensive items?
+SELECT name, price
+FROM golf
+ORDER BY price DESC
+limit 5;
