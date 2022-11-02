@@ -10,6 +10,16 @@ INSERT INTO celebrities (fullname,age) VALUES ("Harry Styles", 28);
 INSERT INTO celebrities (fullname,age) VALUES ("Millie Bobby Brown", 18);
 INSERT INTO celebrities (fullname,age) VALUES ("Zendaya", 26);
 INSERT INTO celebrities (fullname,age) VALUES ("Hayley Williams", 33);
+INSERT INTO celebrities (fullname,age) VALUES ("Charlie D'Amelio", 18);
+INSERT INTO celebrities (fullname,age) VALUES ("Miley Cyrus", 29);
+INSERT INTO celebrities (fullname,age) VALUES ("Will Smith", 54);
+INSERT INTO celebrities (fullname,age) VALUES ("Paris Hilton", 41);
+INSERT INTO celebrities (fullname,age) VALUES ("Jennifer Lawrance", 32);
+INSERT INTO celebrities (fullname,age) VALUES ("Jennifer Lopez", 54);
+INSERT INTO celebrities (fullname,age) VALUES ("John Mulaney", 40);
+INSERT INTO celebrities (fullname,age) VALUES ("Gwen Stefani", 53);
+INSERT INTO celebrities (fullname,age) VALUES ("Elon Musk", 51);
+INSERT INTO celebrities (fullname,age) VALUES ("Jaclyn Hill", 32);
 
 CREATE TABLE jobs (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -21,6 +31,16 @@ INSERT INTO jobs (person_id, job) VALUES (2, "singer");
 INSERT INTO jobs (person_id, job) VALUES (3, "actor");
 INSERT INTO jobs (person_id, job) VALUES (4, "actor");
 INSERT INTO jobs (person_id, job) VALUES (5, "singer");
+INSERT INTO jobs (person_id, job) VALUES (6, "dancer");
+INSERT INTO jobs (person_id, job) VALUES (7, "singer");
+INSERT INTO jobs (person_id, job) VALUES (8, "actor");
+INSERT INTO jobs (person_id, job) VALUES (9, "socialite");
+INSERT INTO jobs (person_id, job) VALUES (10, "actor");
+INSERT INTO jobs (person_id, job) VALUES (11, "singer");
+INSERT INTO jobs (person_id, job) VALUES (12, "comedian");
+INSERT INTO jobs (person_id, job) VALUES (13, "singer");
+INSERT INTO jobs (person_id, job) VALUES (14, "business owner");
+INSERT INTO jobs (person_id, job) VALUES (15, "youtuber");
 
 /*join the tables so we can see each person's name and their job*/
 SELECT c.fullname, j.job
