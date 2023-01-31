@@ -23,27 +23,60 @@ INSERT INTO celebrities (fullname,age) VALUES ("Jaclyn Hill", 32);
 
 CREATE TABLE jobs (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    person_id INTEGER,
+    celeb_id INTEGER,
     job TEXT);
     
-INSERT INTO jobs (person_id, job) VALUES (1, "influencer");
-INSERT INTO jobs (person_id, job) VALUES (2, "singer");
-INSERT INTO jobs (person_id, job) VALUES (3, "actor");
-INSERT INTO jobs (person_id, job) VALUES (4, "actor");
-INSERT INTO jobs (person_id, job) VALUES (5, "singer");
-INSERT INTO jobs (person_id, job) VALUES (6, "dancer");
-INSERT INTO jobs (person_id, job) VALUES (7, "singer");
-INSERT INTO jobs (person_id, job) VALUES (8, "actor");
-INSERT INTO jobs (person_id, job) VALUES (9, "socialite");
-INSERT INTO jobs (person_id, job) VALUES (10, "actor");
-INSERT INTO jobs (person_id, job) VALUES (11, "singer");
-INSERT INTO jobs (person_id, job) VALUES (12, "comedian");
-INSERT INTO jobs (person_id, job) VALUES (13, "singer");
-INSERT INTO jobs (person_id, job) VALUES (14, "business owner");
-INSERT INTO jobs (person_id, job) VALUES (15, "youtuber");
+INSERT INTO jobs (celeb_id, job) VALUES (1, "influencer");
+INSERT INTO jobs (celeb_id, job) VALUES (2, "singer");
+INSERT INTO jobs (celeb_id, job) VALUES (3, "actor");
+INSERT INTO jobs (celeb_id, job) VALUES (4, "actor");
+INSERT INTO jobs (celeb_id, job) VALUES (5, "singer");
+INSERT INTO jobs (celeb_id, job) VALUES (6, "dancer");
+INSERT INTO jobs (celeb_id, job) VALUES (7, "singer");
+INSERT INTO jobs (celeb_id, job) VALUES (8, "actor");
+INSERT INTO jobs (celeb_id, job) VALUES (9, "socialite");
+INSERT INTO jobs (celeb_id, job) VALUES (10, "actor");
+INSERT INTO jobs (celeb_id, job) VALUES (11, "singer");
+INSERT INTO jobs (celeb_id, job) VALUES (12, "comedian");
+INSERT INTO jobs (celeb_id, job) VALUES (13, "singer");
+INSERT INTO jobs (celeb_id, job) VALUES (14, "business owner");
+INSERT INTO jobs (celeb_id, job) VALUES (15, "youtuber");
+
+
+CREATE TABLE friends (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    celeb1_id INTEGER,
+    celeb2_id INTEGER);
+
+INSERT INTO friends (celeb1_id, celeb2_id) 
+VALUES (1,15),
+(2,14),
+(3,13),
+(4,12),
+(5,11),
+(6,10),
+(7,9);
+
 
 /*join the tables so we can see each person's name and their job*/
 SELECT c.fullname, j.job
 FROM celebrities AS c
 LEFT JOIN jobs AS j
-ON c.id=j.person_id;
+ON c.id=j.celeb_id;
+
+/*show the name, age, and job only for those above the age of 29 showing oldest to youngest*/
+SELECT c.fullname, j.job, c.age
+FROM celebrities AS c
+LEFT JOIN jobs AS j
+ON c.id=j.celeb_id
+WHERE c.age > 29
+ORDER BY c.age DESC;
+
+/*show the names of each celebrity and who their friend is on this list*/
+SELECT a.fullname, b.fullname
+FROM friends
+JOIN celebrities AS a
+ON a.id=friends.celeb1_id
+JOIN celebrities AS b
+ON b.id=friends.celeb2_id;
+
