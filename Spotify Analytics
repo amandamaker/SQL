@@ -55,3 +55,17 @@ SELECT artist_name, track_name, danceability, energy, tempo, popularity
 FROM BIT_DB.Spotifydata
 ORDER BY popularity ASC
 LIMIT 1;
+
+/*What is the average loudness of the top 5 most popular songs?*/
+SELECT AVG(loudness) AS avg_loudness, artist_name, track_name, popularity
+FROM BIT_DB.Spotifydata
+GROUP BY artist_name
+ORDER BY popularity DESC
+LIMIT 5;
+
+/*What are the 5 most popular tracks that have an energy greater than 0.5?*/
+SELECT artist_name, track_name, popularity
+FROM BIT_DB.Spotifydata
+WHERE energy > 0.5
+ORDER BY popularity DESC
+LIMIT 5;
