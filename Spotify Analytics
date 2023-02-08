@@ -49,3 +49,9 @@ FROM BIT_DB.Spotifydata
 GROUP BY artist_name
 ORDER BY popularity DESC
 LIMIT 10;
+
+/*What is the danceabilty, energy, and tempo of the least popular song?*/
+SELECT artist_name, track_name, danceability, energy, tempo, popularity
+FROM BIT_DB.Spotifydata
+ORDER BY popularity ASC
+LIMIT 1;
