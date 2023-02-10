@@ -1,5 +1,7 @@
-/*
+# For this project, I downloaded data on city bike lanes.
+# Then I created a table to insert the data into.
 
+#Creating the table: 
 CREATE TABLE BIT_DB.CityBikeLanes (
 id integer primary key,
 year_installed year not null,
@@ -71,9 +73,12 @@ INSERT INTO BIT_DB.CityBikeLanes values(59,2008, 2021,"Kensington",4,4.9,"yes");
 INSERT INTO BIT_DB.CityBikeLanes values(60,2002, 2021,"Mouse",4.5,4.3,"no");
 
 
+#Then I performed the following analytics on the data using SQL.
+
+# I ran a simple query to get familiar with the data
+
 SELECT * FROM CityBikeLanes LIMIT 10;
 
-SELECT * FROM CityBikeLanes WHERE street='Walnut';
 
 /*create a list of all the bike lanes that have an average safety rating of 4.0 or higher. 
 Provide also the average safety rating for each of those bike lanes, and a label that says "Safe Lane"*/
