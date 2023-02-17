@@ -62,3 +62,12 @@ ON t.AlbumId=a.AlbumId
 JOIN chinook.artists artist
 ON a.ArtistId=artist.ArtistId
 ORDER BY InvoiceLineId;
+
+/*Show the invoices associated with each sales agent. 
+Results should include the Sales Agent's full name*/
+SELECT InvoiceID, e.FirstName, e.LastName
+FROM chinook.invoices i
+JOIN chinook.customers c
+ON i.CustomerId=c.CustomerId
+INNER JOIN chinook.employees e
+ON c.SupportRepId=e.EmployeeId;
