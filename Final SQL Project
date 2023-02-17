@@ -44,3 +44,21 @@ ON i.CustomerId=c.CustomerId
 JOIN chinook.employees e
 ON c.SupportRepID=e.EmployeeId
 ORDER BY i.InvoiceId;
+
+/*Provide the purchased track name with each invoice line ID*/
+SELECT InvoiceLineId, Name
+FROM chinook.invoice_items i
+JOIN chinook.tracks t
+ON i.TrackId=t.TrackId
+ORDER BY InvoiceLineId;
+
+/*Provide the purchased track name AND artist name with each invoice line ID*/
+SELECT InvoiceLineId, t.name AS track, artist.Name AS artist
+FROM chinook.invoice_items i
+JOIN chinook.tracks t
+ON i.TrackId=t.TrackId
+INNER JOIN chinook.albums a
+ON t.AlbumId=a.AlbumId
+JOIN chinook.artists artist
+ON a.ArtistId=artist.ArtistId
+ORDER BY InvoiceLineId;
