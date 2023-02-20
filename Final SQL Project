@@ -71,3 +71,14 @@ JOIN chinook.customers c
 ON i.CustomerId=c.CustomerId
 INNER JOIN chinook.employees e
 ON c.SupportRepId=e.EmployeeId;
+
+
+/*Provide a query that shows all the Tracks, and include the Album name, Media type, and Genre*/
+SELECT t.name AS 'Track Name', a.Title AS 'Album Name', m.Name AS 'Media Type', g.Name AS 'Genre'
+FROM chinook.tracks t
+JOIN chinook.Albums a 
+on a.AlbumId = t.AlbumId
+JOIN chinook.media_types m
+ON m.MediaTypeId=t.MediaTypeId
+JOIN chinook.genres g
+ON g.GenreId=t.GenreId;
